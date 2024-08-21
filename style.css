@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    background:#f7edff;
+}
+
+.buttons{
+    margin: 50px;
+}
+
+.buttons button{
+    background: #333;
+    color: #fff;
+    bottom: 0;
+    outline: 0;
+    margin: 5px;
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+}
+
+
+/* this toast box will be in right side bottom  */
+#toastBox{
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    bottom: 30px;
+    right: 30px;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.toast{
+    width: 400px;
+    height: 80px;
+    background: #fff;
+    font-weight: 500;
+    margin: 15px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) ;
+    display: flex;
+    align-items: center ;
+    position: relative;
+    /* animation  */
+    transform: translate(100%);
+    animation: moveleft 0.5s linear forwards;
+}
+
+/* animation for the toast load */
+
+@keyframes moveleft {
+    100%{
+        transform: translate(0);
+    }
+}
+
+.toast i{
+    margin: 0px 20px;
+    font-size: 35px;
+    color: green;
+}
+
+.toast.error i{
+    color: red;
+}
+
+.toast.invalid i{
+    color: orange;
+}
+
+/* progress bar for the toast  */
+.toast::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 6s linear forwards;
+
+}
+
+.toast.error::after{
+    background: red;
+}
+
+.toast.invalid::after{
+    background: orange;
+}
+
+
+@keyframes anim {
+    100%{
+        width: 0;
+    }
+}
